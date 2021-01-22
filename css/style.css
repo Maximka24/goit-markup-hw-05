@@ -19,6 +19,7 @@ html {
 	--color-tartet: #2196f3;
 	--bg-footer: #2f303a;
 	--bg-dutton: #2196f3;
+	--bg-modal: #ffffff;
 	--color-bg-team-icon: #f5f4fa;
 	--color-address: #ffffff;
 	--color-icon: #afb1b8;
@@ -92,6 +93,7 @@ header .container {
 	padding-top: 32px;
 	padding-bottom: 32px;
 	display: block;
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .navigation li {
 	margin-right: 50px;
@@ -108,8 +110,6 @@ header .container {
 .navigation .link:hover,
 .navigation .link:focus {
 	color: var(--color-tartet);
-	transition: 250ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .navigation .current {
 	color: var(--color-tartet);
@@ -155,7 +155,6 @@ header .container {
 }
 
 .contacts {
-	/* display: inline-block; */
 	display: flex;
 	align-items: center;
 	font-weight: 500;
@@ -164,13 +163,13 @@ header .container {
 	padding-top: 32px;
 	padding-bottom: 32px;
 	fill: var(--color-icon-contacts);
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contacts:hover,
 .contacts:focus {
 	color: var(--color-tartet);
 	fill: var(--color-tartet);
-	transition: 250ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icon-header {
 	margin-right: 10px;
@@ -221,6 +220,50 @@ header .container {
 	border-radius: 4px;
 	border: 0;
 	cursor: pointer;
+}
+.backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.2);
+}
+.backdrop.is-hidden {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.modal {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	min-width: 528px;
+	min-height: 581px;
+
+	background: var(--bg-modal);
+}
+
+.button-modal {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	margin-right: 8px;
+	margin-top: 8px;
+	background: var(--bg-modal);
+	transition-property: all;
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.button-modal:focus,
+.button-modal:hover {
+	background: var(--color-tartet);
+	color: var(--bg-modal);
 }
 /* / БЛОК ГЕРОЙ */
 /* НАШИ ДОСТОИНСТВА */
@@ -388,14 +431,14 @@ header .container {
 	width: 44px;
 	height: 44px;
 	fill: var(--color-icon);
+	transition-property: all;
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .color-icon:hover,
 .color-icon:focus {
 	fill: #ffffff;
 	border-radius: 50%;
 	background: var(--color-tartet);
-	transition: 250ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* /НАША КОМАНДА */
@@ -426,13 +469,13 @@ header .container {
 	border-radius: 4px;
 	width: 100%;
 	height: 100%;
+	transition-property: all;
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clients-list:focus,
 .clients-list:hover {
 	fill: var(--color-tartet);
 	border: 1px solid var(--color-tartet);
-	transition: 250ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* /Постоянные клиенты */
@@ -477,12 +520,11 @@ header .container {
 	letter-spacing: 0.02em;
 	color: var(--color-text-paragraph);
 	margin: 0;
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contacts-footer:hover,
 .contacts-footer:focus {
 	color: var(--color-tartet);
-	transition: 250ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .margin-mailto {
 	margin-bottom: 9px;
@@ -508,14 +550,14 @@ header .container {
 	height: 44px;
 	border-radius: 50%;
 	fill: #ffffff;
+	transition-property: all;
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .color-icon-ft:hover,
 .color-icon-ft:focus {
 	fill: #ffffff;
 	border-radius: 50%;
 	background: var(--color-tartet);
-	transition: 250ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* /ФУТЕР */
@@ -551,6 +593,8 @@ header .container {
 	line-height: 2;
 	color: var(--main-text-color);
 	cursor: pointer;
+	transition-property: all;
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .batton-list li {
 	margin-right: 8px;
@@ -562,8 +606,6 @@ header .container {
 	box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
 		0px 2px 2px rgba(0, 0, 0, 0.12);
 	border: 0;
-	transition: 250ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .container-kards li {
 	width: 370px;
@@ -590,14 +632,14 @@ header .container {
 }
 .portfolio-shadow {
 	display: block;
+	transition-property: all;
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-shadow:focus,
 .portfolio-shadow:hover {
 	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
 		1px 4px 6px rgba(0, 0, 0, 0.16);
-	transition: 250ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .activity {
@@ -616,4 +658,34 @@ header .container {
 	line-height: 1.87;
 	letter-spacing: 0.03em;
 	color: var(--color-text-paragraph);
+}
+.portfolio-imge {
+	position: relative;
+	overflow: hidden;
+}
+.portfolio-text {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(33, 150, 243, 0.9);
+	padding: 63px 24px;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 1.55;
+	letter-spacing: 0.03em;
+	color: var(--off-logo-color);
+	transform: translateY(100%);
+	opacity: 0;
+	transition-property: all;
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	pointer-events: none;
+}
+.portfolio-shadow:hover .portfolio-text,
+.portfolio-shadow:focus .portfolio-text {
+	transform: translateY(0);
+	opacity: 1;
 }
